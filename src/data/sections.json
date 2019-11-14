@@ -1,0 +1,75 @@
+{
+   "sections":[
+      {
+         "id":1,
+         "heading":"Intro",
+         "copy":"Hi, I am Robert Miller. Dabbling in academia, design and development in an effort to make the web an exciting place for others."
+      },
+      {
+         "id":2,
+         "heading":"About",
+         "copy":"Always up for a challenge, I enjoy learning and endeavour to stay up to date with new technologies."
+      },
+      {
+         "id":3,
+         "heading":"Thoughts",
+         "copy":"Works as a Javascript Enginneer. Has experience with Gatsby, React, Javascript, Node, Mongo and a little Python as well",
+         "workquote":"“We are what we pretend to be, so we must be careful about what we pretend to be.”",
+         "quoteattribute":"― Kurt Vonnegut",
+         "posts":[
+            {
+               "id":1,
+               "heading":"Post One",
+               "copy":"Hi, I am Robert Miller. Dabbling in academia and design in an effort to make the web an exciting place for others.",
+               "image":"/images/"
+            },
+            {
+               "id":2,
+               "heading":"Post Two",
+               "copy":"Always up for a challenge, I enjoy learning and endeavour to stay up to date with new technologies.",
+               "image":"/images/"
+            },
+            {
+               "id":3,
+               "heading":"Post Three",
+               "copy":"Works as a Javascript Enginneer. Has experience with Gatsby, React, Javascript, Node, Mongo and a little Python as well",
+               "image":"/images/"
+            },
+            {
+               "id":4,
+               "heading":"Post Four",
+               "copy":"PWA (Progre...",
+               "image":"/images/"
+            }
+         ]
+      },
+      {
+         "id":4,
+         "heading":"Connect",
+         "copy":"PWA (Progre...",
+         "socialnodes":[
+            {
+               "id":1,
+               "heading":"Twitter",
+               "copy":"Twitter",
+               "image":"twitter",
+               "url":"https://twitter.com/designrobmiller"
+            },
+            {
+               "id":2,
+               "heading":"Medium",
+               "copy":"Medium",
+               "image":"medium",
+               "url":"https://medium.com/@designrobmiller"
+            },
+            {
+               "id":3,
+               "heading":"Instagram",
+               "copy":"Instagram",
+               "image":"instagram",
+               "url":"https://www.instagram.com/design.robmiller/"
+            }
+         ]
+      }
+   ]
+}
