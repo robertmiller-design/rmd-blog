@@ -111,6 +111,9 @@ const ProjectElement = styled.li`
   :nth-of-type(even) {
     transform: translateY(-15vh);
   }
+  @media (min-width: 1600px) {
+    transform: translateY(5vh);
+  }
 `
 
 const Work = props => {
