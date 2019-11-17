@@ -1,6 +1,5 @@
 import React from "react"
 import styled from '@emotion/styled'
-import MyImage from "./MyImage"
 import Icons from './Icons'
 
 const ProjectPopupArticle = styled.div`

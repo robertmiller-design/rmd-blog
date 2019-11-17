@@ -1,9 +1,5 @@
-import React, { useState } from "react"
+import React from "react"
 import styled from '@emotion/styled'
-import MyImage from "./MyImage"
-import ProjectPopup from "./ProjectPopup"
-import { Link, graphql } from "gatsby"
-import TransitionLink, { TransitionPortal, TransitionState } from 'gatsby-plugin-transition-link'
 import AniLink from 'gatsby-plugin-transition-link/AniLink'
 import Img from "gatsby-image/withIEPolyfill"
 
@@ -11,24 +7,31 @@ const ProjectArticle = styled.article`
   position: relative;
   z-index: 9;
   width: 100%;
-  min-width: 30rem;
+  min-width: 32rem;
   max-width: 55vmin;
-  margin-left: 30vw;
+  margin-left: 25vw;
   background-color: ${props => props.theme.colors.background};
   border-radius: 80% 60% 52% 72% / 52% 48% 40% 72%;
   box-shadow: ${props => props.theme.boxShadow.primary};
   cursor: pointer;
-  transition: all .3s;
-
-  @media (max-width: 1024px) {
-    padding: 12vw;
-  }
+  transition: all .3s ease;
   @media (max-width: 768px) {
-    padding: 8vw;
+    min-width: 15rem;
+    max-width: 35vmin;
+    margin-left: 15vw;
+    margin-right: 15vw;
   }
-  :hover {
-    box-shadow: ${props => props.theme.boxShadow.secondary};
-    transform: scale(1.125);
+  :first-of-type {
+    margin-left: 31vw;
+    @media (max-width: 768px) {
+      margin-left: 5vw;
+    }
+    @media (max-width: 1024px) {
+      margin-left: 20vw;
+    }
+    @media (min-width: 1600px) {
+      margin-left: 35vw;
+    }
   }
   @media (prefers-color-scheme: dark) {
     background-color: ${props => props.theme.colors.text};
@@ -46,20 +49,33 @@ const ProjectArticleLink = styled(AniLink)`
   background: transparent;
   outline: none;
   :hover {
-    transform: scale(1.25);
-    box-shadow: ${props => props.theme.boxShadow.secondary};
-    z-index: 9;
+    transform: scale(1.0125);
+    & div {
+      transform: scale(1.0125);
+      color: ${props => props.theme.colors.secondary};
+      @media (prefers-color-scheme: dark) {
+        color: ${props => props.theme.colors.tertiary};
+      }
+    }
+    & img {
+      transform: scale(1.0125);
+    }
   }
 `
 
 const ProjectArticleFig = styled.figure`
   position: relative;
   width: 100%;
-  min-height: 30rem;
-  min-width: 30rem;
+  min-height: 32rem;
+  min-width: 32rem;
   max-width: 55vmin;
   border-radius: 80% 60% 52% 72% / 52% 48% 40% 72%;
   overflow: hidden;
+  @media (max-width: 768px) {
+    min-height: 20rem;
+    min-width: 15rem;
+    max-width: 35vmin;
+  }
 `
 const ProjectArticleImg = styled(Img)`
   position: absolute;
@@ -67,8 +83,12 @@ const ProjectArticleImg = styled(Img)`
   left: 0;
   width: 100%;
   min-height: 30rem;
+  transition: all .3s;
   object-fit: cover;
   object-position: center;
+  @media (max-width: 768px) {
+      min-height: 20rem;
+  }
 `
 
 const ProjectArticleContent = styled.div`
@@ -78,27 +98,19 @@ const ProjectArticleContent = styled.div`
   left: 0;
   width: 100%;
   font-size: 1.4rem;
-  transition: color .3s;
+  transition: all .3s ease;
   @media (prefers-color-scheme: dark) {
     color: ${props => props.theme.colors.background};
   }
 `
 const ProjectArticleTitle = styled.h2`
-  color: ${props => props.theme.colors.text};
   margin-left: -10%;
   font-size: calc(2rem + 2vw);
-  @media (prefers-color-scheme: dark) {
-    color: ${props => props.theme.colors.background};
-  }
 `
 const ProjectArticleDate = styled.p`
-  color: ${props => props.theme.colors.text};
   margin-left: -10%;
   margin-bottom: 0.5rem;
   font-size: calc(.75rem + 1vw);
-  @media (prefers-color-scheme: dark) {
-    color: ${props => props.theme.colors.background};
-  }
 `
 const ProjectArticleCTA = styled.div`
   display: block;
@@ -113,7 +125,7 @@ const ProjectArticleBtnInline = styled.span`
   border-bottom: .1rem solid;
 `
 const Project = props => {
-  const { post, myRef } = props
+  const { post } = props
 
   return (
       <ProjectArticle>
@@ -144,7 +156,6 @@ const Project = props => {
           </ProjectArticleLink>
       </ProjectArticle>
   )
-
 }
 
 export default Project

@@ -37,13 +37,15 @@ const ProjectPopupClose = styled(AniLink)`
   text-decoration: none;
   font-size: 1rem;
   transition: all .3s;
-  color: ${props => props.theme.colors.background};
   cursor: pointer;
   @media (prefers-color-scheme: dark) {
     color: ${props => props.theme.colors.background};
   }
   :hover {
     color: ${props => props.theme.colors.secondary};
+    @media (prefers-color-scheme: dark) {
+      color: ${props => props.theme.colors.tertiary};
+    }
   }
 `
 const ProjectPopupCloseText = styled.span`
@@ -51,33 +53,25 @@ const ProjectPopupCloseText = styled.span`
   margin-top: .3vh;
 `
 const ProjectPopupArticleTitle = styled.h2`
-  color: ${props => props.theme.colors.text};
   max-width: 75vw;
   margin-top: 4vh;
   margin-bottom: 4vh;
   text-align: center;
   font-size: calc(4rem + 2vw);
-  @media (prefers-color-scheme: dark) {
-    color: ${props => props.theme.colors.background};
+  @media (max-width: 768px) {
+    max-width: 100vw;
+    font-size: calc(2rem + 2vw);
   }
 `
 const ProjectPopupArticleDate = styled.span`
-  color: ${props => props.theme.colors.text};
   text-align: center;
   font-size: calc(.5rem + 1vw);
   margin-bottom: 8vh;
   line-height: 1.5;
   border-bottom: .1rem solid;
-  @media (prefers-color-scheme: dark) {
-    color: ${props => props.theme.colors.background};
-  }
 `
-const ProjectPopupArticleCopy = styled.p`
-  color: ${props => props.theme.colors.text};
+const ProjectPopupArticleCopy = styled.div`
   font-size: 1.5rem;
-  @media (prefers-color-scheme: dark) {
-    color: ${props => props.theme.colors.background};
-  }
 `
 const BlogBlob = styled.div`
   height: 40vh;
@@ -112,7 +106,7 @@ export default ({ data, transitionStatus, entry, exit, myRef }) => {
     <Layout className={transitionStatus}>
     <ProjectPopupArticle>
       <ProjectPopupArticleContent>
-      <ProjectPopupClose to="/#thoughts">
+      <ProjectPopupClose to="/">
         <Icons
           icon="back"
           style={{

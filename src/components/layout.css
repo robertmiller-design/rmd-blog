@@ -488,9 +488,14 @@ hr {
   padding-right: 0;
   padding-top: 0;
   margin-bottom: calc(1.45rem - 1px);
-  background: hsla(0, 0%, 0%, 0.2);
+  background: #00466B;
   border: none;
   height: 1px;
+}
+@media (prefers-color-scheme: dark) {
+  hr {
+    background-color: #EEF8FF;
+  }
 }
 address {
   margin-left: 0;
@@ -620,4 +625,9 @@ pre code:after,
 pre tt:before,
 pre tt:after {
   content: "";
+}
+p > img {
+  text-align: center;
+  margin-left: auto;
+  margin-right: auto;
 }

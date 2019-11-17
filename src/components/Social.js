@@ -1,7 +1,5 @@
 import React from "react"
-// import PropTypes from 'prop-types'
 import styled from '@emotion/styled'
-import { css, keyframes } from '@emotion/core'
 
 import Icons from './Icons'
 
@@ -15,12 +13,11 @@ const SocialWrapper = styled.section`
   position: relative;
   z-index: 5;
   scroll-snap-align: start;
-
   @media (max-width: 1024px) {
     padding: 12vw;
   }
   @media (max-width: 768px) {
-    padding: 8vw;
+    padding: 5vw;
   }
 `
 const SocialHeader = styled.h2`
@@ -32,12 +29,20 @@ const SocialHeader = styled.h2`
   @media (prefers-color-scheme: dark) {
     color:  ${props => props.theme.colors.background};
   }
+  @media (max-width: 768px) {
+    font-size: calc(2rem + 2vw);
+  }
 `
 const SocialNodes = styled.ul`
   display: flex;
   align-items: center;
   list-style: none;
   padding: 10vh 10vw;
+  @media (max-width: 768px) {
+    width: 85vw;
+    margin-left: 0;
+    justify-content: space-between;
+  }
 `
 const SocialNodeElement = styled.li`
   flex: 0 0 auto;
@@ -61,7 +66,7 @@ const SocialNodeLink = styled.a`
   overflow: hidden;
   text-decoration: none;
   outline: none;
-  transition: all .3s;
+  transition: all .3s ease;
   vertical-align: baseline;
   margin: 0;
   padding: 1.75vw;
@@ -69,39 +74,28 @@ const SocialNodeLink = styled.a`
   background: transparent;
   outline: none;
   background-color: ${props => props.theme.colors.primary};
+  color:  ${props => props.theme.colors.background};
   box-shadow: ${props => props.theme.boxShadow.primary};
   cursor: pointer;
+  @media (max-width: 768px) {
+    min-height: 5rem;
+    max-height: 6vmin;
+    min-width: 5rem;
+    max-width: 6vmin;
+    padding: 4vw;
+    font-size: 90%;
+  }
   :hover {
-    transform: scale(1.25);
+    transform: scale(1.125);
     background-color: ${props => props.theme.colors.secondary};
-    animation: ${props => props.rotateBlob} 45s ease infinite;
     box-shadow: ${props => props.theme.boxShadow.secondary};
     z-index: 9;
+    @media (prefers-color-scheme: dark) {
+      background-color: ${props => props.theme.colors.tertiary};
+    }
   }
-  color:  ${props => props.theme.colors.background};
   @media (prefers-color-scheme: dark) {
     color:  ${props => props.theme.colors.text};
-  }
-`
-const rotateBlob = keyframes`
-  10% {
-    border-radius: 80% 48% 40% 64% / 132% 84% 132% 60%;
-  }
-
-  30% {
-    border-radius: 80% 34% 60% 124% / 52% 44% 72% 40%;
-  }
-
-  50% {
-    border-radius: 20% 44% 130% 74% / 40% 64% 80% 80%;
-  }
-
-  70% {
-    border-radius: 70% 84% 80% 44% / 120% 84% 60% 60%;
-  }
-
-  90% {
-    border-radius: 80% 24% 60% 124% / 52% 34% 72% 40%;
   }
 `
 const Social = props => {

@@ -7,15 +7,17 @@ const AboutWrapper = styled.section`
   display: flex;
   width: 100vw;
   height: 100vh;
-  padding: 10vw;
+  padding: 10vh 10vw;
   position: relative;
   scroll-snap-align: start;
 
   @media (max-width: 1024px) {
-    padding: 12vw;
+    padding: 12vh 12vw;
   }
   @media (max-width: 768px) {
-    padding: 8vw;
+    padding: 8vh 8vw;
+    margin-bottom: 8vh;
+    height: auto;
   }
 `
 const AboutContent = styled.div`
@@ -32,6 +34,9 @@ const AboutContent = styled.div`
 const AboutImage = styled.div`
   display: flex;
   flex-direction: column;
+  @media (max-width: 768px) {
+    margin-top: 10vh;
+  }
 `
 const AboutImageBlob = styled.div`
   height: 70vh;
@@ -43,10 +48,11 @@ const AboutImageBlob = styled.div`
   transform: rotate(-16deg);
   box-shadow: ${props => props.theme.boxShadow.primary};
   @media (max-width: 1024px) {
-    height: 50vh;
-    width: 50vw;
+    height: 45vh;
+    width: 35vw;
     margin-left: -5vw;
   }
+
   @media (max-width: 768px) {
     height: 50vh;
     width: 90vw;
@@ -65,7 +71,7 @@ const AboutHeading = styled.h2`
   font-weight: 900;
   text-align: right;
   @media (max-width: 768px) {
-    font-size: 3rem;
+    font-size: calc(2rem + 2vw);
     text-align: left;
   }
   @media (prefers-color-scheme: dark) {
