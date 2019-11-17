@@ -125,8 +125,8 @@ const ProjectArticleBtnInline = styled.span`
   border-bottom: .1rem solid;
 `
 const Project = props => {
-  const { post } = props
-
+  const { post, thePosition } = props
+  console.log(thePosition)
   return (
       <ProjectArticle>
           <ProjectArticleLink

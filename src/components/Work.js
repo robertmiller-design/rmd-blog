@@ -1,4 +1,4 @@
-import React, { useState } from "react"
+import React, {useState, useEffect } from "react"
 import styled from '@emotion/styled'
 import Icons from './Icons'
 import Project from "./Project"
@@ -170,33 +170,46 @@ const ProjectElement = styled.li`
 
 const Work = props => {
   const { data, section, posts } = props
+  let isMobile = width < 768
   let heading
   let workquote
   let quoteattribute
-  const postsSlider = document.getElementById('posts')
-  const [ slideEl, setSlideEl ] = useState(0)
   const [ currentPost, setCurrentPost ] = useState(1)
-
+  const [ slideEl, setSlideEl ] = useState(-70)
+  const [width, setWidth] = useState(window.innerWidth)
+  const postsSlider = document.getElementById('posts')
   const countOfPosts = posts.length;
-
+  useEffect(() => {
+    const handleResize = () => {
+      setWidth(window.innerWidth)
+    }
+    window.addEventListener('resize', handleResize, 250)
+    return () => window.removeEventListener('resize', handleResize, 250)
+  })
   const handleClick = direction => {
     let prevSlide = slideEl
     if (direction === 'next') {
       if (currentPost === countOfPosts) return
-      setSlideEl(prevSlide - 70)
+      if (isMobile) {
+        setSlideEl(prevSlide + 140)
+      } else {
+        setSlideEl(prevSlide + 70)
+      }
       setTimeout(() => {
         setCurrentPost(prevCount => prevCount + 1)
         postsSlider.style.transform = `translateX(${slideEl}%)`
       }, 300)
-      console.log(prevSlide, slideEl)
     } else {
       if (currentPost === 1) return
-      setSlideEl(prevSlide + 70)
+      if (isMobile) {
+        setSlideEl(prevSlide - 140)
+      } else {
+        setSlideEl(prevSlide - 70)
+      }
       setTimeout(() => {
         setCurrentPost(prevCount => prevCount - 1)
         postsSlider.style.transform = `translateX(${slideEl}%)`
       }, 300)
-      console.log(prevSlide, slideEl)
     }
   }
 
@@ -207,6 +220,14 @@ const Work = props => {
       quoteattribute = part.quoteattribute
     )
   ))
+  const winScroll = window.pageYOffset
+  const [thePosition, setThePosition] = useState(0)
+
+  function onClick(event, winScroll) {
+    setThePosition(winScroll)
+  }
+
+  console.log(winScroll)
 
   return (
     <WorkWrapper id="thoughts">
@@ -221,8 +242,8 @@ const Work = props => {
            </WorkHeader>
            <WorkProjects id="posts">
              {posts.map(({ node }) => (
-                 <ProjectElement id="post" key={node.id}>
-                  <Project post={node} />
+                 <ProjectElement id="post" key={node.id} onClick={onClick}>
+                  <Project post={node} thePosition={winScroll} />
                  </ProjectElement>
                ))}
            </WorkProjects>

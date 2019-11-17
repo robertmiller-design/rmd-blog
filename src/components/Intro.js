@@ -111,7 +111,6 @@ const Intro = props => {
 
   const Paragraph = ({ paragraph, keywords }) => {
     let keyCount = 0
-    console.time("Measure paragraph")
 
     let myregex = keywords.join('\\b|\\b');
     let splits = paragraph.split(new RegExp(`\\b${myregex}\\b`, 'ig'))
@@ -124,19 +123,15 @@ const Intro = props => {
         result.push(<Term key={++keyCount}>{matches[i]}</Term>)
     }
 
-    console.timeEnd("Measure paragraph")
-
     return (
       <p>{result}</p>
     )
   }
   const FormattedText = ({ paragraphs, keywords }) => {
-      console.time("Measure")
 
       const result = paragraphs.map((paragraph, index) =>
         <Paragraph key={index} paragraph={paragraph} keywords={keywords} /> )
 
-      console.timeEnd("Measure")
       return (
         <div>
           {result}

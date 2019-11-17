@@ -72,6 +72,9 @@ const ProjectPopupArticleDate = styled.span`
 `
 const ProjectPopupArticleCopy = styled.div`
   font-size: 1.5rem;
+  line-height: 2rem;
+  max-width: 75vw;
+  margin: auto 0;
 `
 const BlogBlob = styled.div`
   height: 40vh;
@@ -97,15 +100,14 @@ const BlogBlobOther = styled.div`
   z-index: 1;
 `
 
-export default ({ data, transitionStatus, entry, exit, myRef }) => {
+export default ({ data, transitionStatus, entry, exit }) => {
   const post = data.markdownRemark
-  console.log(transitionStatus, entry, exit)
   let featuredImgFluid = post.frontmatter.featuredImage.childImageSharp.fluid
 
   return (
     <Layout className={transitionStatus}>
     <ProjectPopupArticle>
-      <ProjectPopupArticleContent>
+      <ProjectPopupArticleContent id="blogpost">
       <ProjectPopupClose to="/">
         <Icons
           icon="back"
