@@ -170,15 +170,12 @@ const ProjectElement = styled.li`
 
 const Work = props => {
   const { data, section, posts } = props
-  let isMobile = width < 768
   let heading
   let workquote
   let quoteattribute
-  const [ currentPost, setCurrentPost ] = useState(1)
-  const [ slideEl, setSlideEl ] = useState(-70)
+
   const [width, setWidth] = useState(window.innerWidth)
-  const postsSlider = document.getElementById('posts')
-  const countOfPosts = posts.length;
+  let isMobile = width < 768
   useEffect(() => {
     const handleResize = () => {
       setWidth(window.innerWidth)
@@ -186,26 +183,25 @@ const Work = props => {
     window.addEventListener('resize', handleResize, 250)
     return () => window.removeEventListener('resize', handleResize, 250)
   })
+
+  const [ currentPost, setCurrentPost ] = useState(1)
+  const newSlide = (isMobile) ? 140 : 70
+  const [ slideEl, setSlideEl ] = useState(-newSlide)
+  const postsSlider = document.getElementById('posts')
+  const countOfPosts = posts.length
+
   const handleClick = direction => {
     let prevSlide = slideEl
     if (direction === 'next') {
       if (currentPost === countOfPosts) return
-      if (isMobile) {
-        setSlideEl(prevSlide + 140)
-      } else {
-        setSlideEl(prevSlide + 70)
-      }
+      setSlideEl(prevSlide + newSlide)
       setTimeout(() => {
         setCurrentPost(prevCount => prevCount + 1)
         postsSlider.style.transform = `translateX(${slideEl}%)`
       }, 300)
     } else {
       if (currentPost === 1) return
-      if (isMobile) {
-        setSlideEl(prevSlide - 140)
-      } else {
-        setSlideEl(prevSlide - 70)
-      }
+      setSlideEl(prevSlide - newSlide)
       setTimeout(() => {
         setCurrentPost(prevCount => prevCount - 1)
         postsSlider.style.transform = `translateX(${slideEl}%)`
