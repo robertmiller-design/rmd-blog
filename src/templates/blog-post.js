@@ -2,6 +2,7 @@ import React from "react"
 import styled from '@emotion/styled'
 import Layout from "../components/layout"
 import Icons from '../components/Icons'
+import SEO from "../components/seo"
 import { graphql } from "gatsby"
 import AniLink from 'gatsby-plugin-transition-link/AniLink'
 import Img from "gatsby-image"
@@ -105,7 +106,14 @@ export default ({ data, transitionStatus, entry, exit }) => {
   let featuredImgFluid = post.frontmatter.featuredImage.childImageSharp.fluid
 
   return (
-    <Layout className={transitionStatus}>
+    <Layout
+      className={transitionStatus}
+      pageMeta={{
+        title: "Blog",
+        keywords: ["design", "internet", "academia"],
+        description: "Hi, I am Robert Miller. Dabbling in academia and design in an effort to make the web an exciting place for others."
+      }}>
+    <SEO title={post.frontmatter.title} description={post.excerpt} />
     <ProjectPopupArticle>
       <ProjectPopupArticleContent id="blogpost">
       <ProjectPopupClose to="/">
@@ -145,6 +153,7 @@ export const query = graphql`
           }
         }
       }
+      excerpt
     }
   }
 `

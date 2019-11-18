@@ -27,7 +27,7 @@ const LayoutFooter = styled.footer`
 export default ({ pageMeta, children }) => (
   <>
     <Helmet>
-      <title>{`Rob Miller | ${pageMeta}`}</title>
+      <title>{`Rob Miller | ${pageMeta.title}`}</title>
 
       {/* The charset, viewport and author meta tags will always have the same value, so we hard code them! */}
       <meta charset="UTF-8" />
@@ -35,10 +35,10 @@ export default ({ pageMeta, children }) => (
       <meta name="author" content="Rob Miller" />
 
       {/* The rest we set dynamically with props */}
-      <meta name="description" content={pageMeta} />
+      <meta name="description" content={pageMeta.description} />
 
       {/* We pass an array of keywords, and then we use the Array.join method to convert them to a string where each keyword is separated by a comma */}
-      <meta name="keywords" content={pageMeta} />
+      <meta name="keywords" content={pageMeta.keywords} />
 
       <script type="application/ld+json">{`
         {
@@ -65,7 +65,7 @@ export default ({ pageMeta, children }) => (
     </Helmet>
     <ThemeProvider theme={theme}>
       {children}
-      <LayoutFooter>{`${new Date().getFullYear()} No Rights Whatsoever Reserved`}</LayoutFooter>
+      <LayoutFooter>{`${new Date().getFullYear()} Robert Miller `}</LayoutFooter>
     </ThemeProvider>
   </>
 )

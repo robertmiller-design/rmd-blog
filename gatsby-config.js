@@ -6,13 +6,13 @@
 
 module.exports = {
   siteMetadata: {
-    title: `I am Robert Miller | Designer`,
+    title: `Rob Miller | Designer`,
     titleTemplate: "%s · The Real Hero",
     description:
-      "I am a DESIGNER from Melbourne who enjoys collaborating with others and developing creative solutions from brief to execution.",
-    url: "https://iamrobertmiller.com/", // No trailing slash allowed!
-    image: "/images/snape.jpg", // Path to your image you placed in the 'static' folder
-    twitterUsername: "@iamrobertmiller",
+      "Always thinking, sometimes designing. I am a UI/UX designer based in Melbourne that would like to make the internet and eventually the world a better place for others.",
+    url: "https://robertmiller.design", // No trailing slash allowed!
+    image: "/images/portrait.jpg", // Path to your image you placed in the 'static' folder
+    twitterUsername: "@designrobmiller",
   },
   plugins: [
     {
