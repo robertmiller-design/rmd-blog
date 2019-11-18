@@ -6,7 +6,8 @@ import styled from '@emotion/styled'
 const Image = styled.div`
   width: 110%;
   height: auto;
-  margin-top: -2vw;
+  margin-top: -4vh;
+  margin-left: -2vw;
   transform: rotate(16deg);
   mix-blend-mode: multiply;
   @media (max-width: 1024px) {

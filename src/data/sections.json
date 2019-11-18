@@ -57,10 +57,10 @@
             },
             {
                "id":2,
-               "heading":"Medium",
-               "copy":"Medium",
-               "image":"medium",
-               "url":"https://medium.com/@designrobmiller"
+               "heading":"Dribbble",
+               "copy":"Dribbble",
+               "image":"dribbble",
+               "url":"https://dribbble.com/rob-miller"
             },
             {
                "id":3,

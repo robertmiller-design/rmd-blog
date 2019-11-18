@@ -39,8 +39,8 @@ const AboutImage = styled.div`
   }
 `
 const AboutImageBlob = styled.div`
-  height: 70vh;
-  width: 40vw;
+  height: 65vh;
+  width: 35vw;
   margin-left: -5vw;
   background-color: ${props => props.theme.colors.primary};
   border-radius: 60% 88% 60% 84% / 100% 84% 152% 80%;

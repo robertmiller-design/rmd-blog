@@ -1,7 +1,7 @@
 ---
 title: "My Favourite Podcasts for 2019"
 date: "2019-10-10"
-featuredImage: "../images/team-cat.jpeg"
+featuredImage: "../images/podcasts.jpg"
 ---
 
 Here's a list of podcast that have enjoyed listening to this year.
