@@ -1,7 +1,7 @@
 ---
 title: "Sydney Exhibitions"
 date: "2019-10-30"
-featuredImage: "../images/sydney.jpg"
+featuredImage: "../images/team-cat.jpeg"
 ---
 
 # Sydney Exhibitions
