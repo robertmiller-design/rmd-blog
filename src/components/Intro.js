@@ -26,21 +26,27 @@ const IntroHeader = styled.h2`
   @media (min-width: 1600px) {
     font-size: calc(6rem + 1.5vw);
   }
+  @media (max-width: 1024px) {
+    font-size: calc(3rem + 2vw);
+    line-height: 4rem;
+  }
   @media (max-width: 768px) {
     font-size: calc(2rem + 1.5vw);
     line-height: 3rem;
-  }
-  @media (max-height: 568px) {
-    font-size: calc(2rem + 1.5vw);
-    line-height: 2.5rem;
   }
   @media (max-height: 736px) {
     font-size: calc(2rem + 2vw);
     line-height: 3rem;
   }
-  @media (max-width: 1024px) {
-    font-size: calc(3rem + 2vw);
-    line-height: 4rem;
+  @media (max-height: 667px) {
+    width: 90vw;
+    font-size: calc(2rem + 2vw);
+    line-height: 2.5rem;
+  }
+  @media (max-height: 568px) {
+    width: 90vw;
+    font-size: calc(2rem + 1.5vw);
+    line-height: 2.5rem;
   }
   @media (prefers-color-scheme: dark) {
     color: ${props => props.theme.colors.background};

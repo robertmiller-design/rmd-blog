@@ -23,7 +23,7 @@ const AboutWrapper = styled.section`
 const AboutContent = styled.div`
   display: grid;
   grid-template-columns: 1fr 1fr;
-  grid-gap: ${props => props.theme.space[5]}px;
+  grid-gap: ${props => props.theme.space[4]}px;
   position: relative;
   z-index: 2;
   @media (max-width: 768px) {
@@ -86,6 +86,14 @@ const AboutBody = styled.p`
   text-align: right;
   @media (max-width: 768px) {
     text-align: left;
+  }
+  @media (max-height: 667px) {
+    font-size: 1.125rem;
+    line-height: 1.75rem;
+  }
+  @media (max-height: 568px) {
+    font-size: 1rem;
+    line-height: 1.5rem;
   }
   @media (prefers-color-scheme: dark) {
     color: ${props => props.theme.colors.background};

@@ -8,7 +8,7 @@
       {
          "id":2,
          "heading":"About",
-         "copy":"Always up for a challenge, I enjoy learning and endeavour to stay up to date with new technologies."
+         "copy":"Always thinking, sometimes designing. I am a UI/UX designer based in Melbourne that would like to make the internet and eventually the world a better place for others. Working for a small digital agency I design new digital products and try to improve the user experience of existing products. I also teach Web Design and User Experience as part of the Bachelor of Arts (Content Creation)."
       },
       {
          "id":3,
@@ -46,7 +46,7 @@
       {
          "id":4,
          "heading":"Connect",
-         "copy":"PWA (Progre...",
+         "copy":"I share more at some of these other sites. Reach out and get in touch with me.",
          "socialnodes":[
             {
                "id":1,

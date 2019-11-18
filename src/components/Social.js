@@ -13,25 +13,32 @@ const SocialWrapper = styled.section`
   position: relative;
   z-index: 5;
   scroll-snap-align: start;
+  color: ${props => props.theme.colors.text};
+
   @media (max-width: 1024px) {
     padding: 12vw;
   }
   @media (max-width: 768px) {
     padding: 5vw;
   }
+  @media (prefers-color-scheme: dark) {
+    color:  ${props => props.theme.colors.background};
+  }
 `
 const SocialHeader = styled.h2`
-  color: ${props => props.theme.colors.text};
   font-size: calc(4rem + 2vw);
   font-weight: 900;
   margin: 5vh 10vw;
   text-align: left;
-  @media (prefers-color-scheme: dark) {
-    color:  ${props => props.theme.colors.background};
-  }
   @media (max-width: 768px) {
     font-size: calc(2rem + 2vw);
   }
+`
+const SocialBody = styled.p`
+  font-size: 1.5rem;
+  line-height: 2rem;
+  font-weight: 300;
+  text-align: center;
 `
 const SocialNodes = styled.ul`
   display: flex;
@@ -101,11 +108,13 @@ const SocialNodeLink = styled.a`
 const Social = props => {
   const { data, section } = props
   let heading
+  let body
   let nodes
 
   data.map(part => (
     section === part.heading && (
       heading = part.heading,
+      body = part.copy,
       nodes = part.socialnodes
     )
   ))
@@ -118,6 +127,11 @@ const Social = props => {
         data-aos-easing="ease-in-out">
         {heading}
       </SocialHeader>
+      <SocialBody
+        data-aos="fade-up"
+        data-aos-anchor-placement="bottom-bottom"
+        data-aos-duration="1200"
+        data-aos-easing="ease-in-out">{body}</SocialBody>
       <SocialNodes>
         {nodes &&
           nodes.map(node => (
