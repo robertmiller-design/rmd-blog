@@ -1,6 +1,6 @@
 ---
 title: "Sydney Exhibitions"
-date: "2019-10-30"
+date: "2019-11-11"
 featuredImage: "../images/sydney.jpg"
 ---
 
